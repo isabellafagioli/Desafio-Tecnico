@@ -97,6 +97,45 @@ int last(pointer list){
     return list->data;
 }
 
+int find_first(pointer list){
+    pointer aux = list;
+    int min = 10; //considering the exemple where no element is >10 
+    int size = count_elements(list);
+    for(int i = 0; i < size;i++){
+        if(aux->data < min){
+            min = aux->data;
+        }                
+        aux = aux->next;
+    }
+    if(list == NULL){
+        return -1;
+    }
+    ponter new_list = initialize_list();
+    while(list != NULL){
+        if(list->data != element){
+            new_list = put(new_list, list->data);
+        }
+        if(list->data == element){
+            list = list->next;
+        }
+        list->next;
+    }
+    return min;
+
+}
+
+pointer sort(pointer list){
+    pointer sorted_list = initialize_list();
+    while(1){
+        int number = find_first(list);
+        sorted_list = put(sorted_list, number);
+        if(number == -1){
+            break;
+        }
+    }
+    return sorted_list;  
+}
+
 void read_entry(char *entry, pointer list) {
 
     if(entry[0] == 'p'){
