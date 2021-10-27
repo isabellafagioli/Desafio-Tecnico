@@ -37,9 +37,20 @@ int get(pointer list, int pos){
 
 void list(pointer list){
     //the first added is right next to null
-    if(list->next != NULL){
+    if(list != NULL){
         //use recursion to find the first element added
         list(list->next);
         printf("%d ", list->data);
     }
+}
+
+void clear(pointer list){
+    //free to clear the list
+    if(list!=NULL){
+        //start from the last so we don't lose the pointer to the next
+        clear(list->next);
+        free(list);
+    }
+}
+
 }
