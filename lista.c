@@ -56,13 +56,31 @@ void clear(pointer list){
 int fisrt(pointer list){
     if(list != NULL){
         //use recursion to find the first element added
-        list(list->next);
         if(list->next == NULL){
+            return list->data;
             printf("%d ", list->data);
         }
+        return list(list->next);
     }
+    return NULL;
 }
 
+pointer remove(pointer list, int pos){
+    int counter = 1;
+    pointer aux_list = list; //just to clear (avoid memory leak)
+    ponter new_list = initialize_list();
+    while(list != NULL){
+        if(counter != pos){
+            new_list = put(new_list, list->data);
+        }
+        if(counter == pos){
+            list = list->next;
+        }
+        list->next;
+        counter++;
+    }
+    clear(aux_list);
+    return new_list;
 }
 
 int last(pointer list){
