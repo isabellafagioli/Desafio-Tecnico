@@ -34,3 +34,12 @@ int get(pointer list, int pos){
     }
     return aux->data;
 }
+
+void list(pointer list){
+    //the first added is right next to null
+    if(list->next != NULL){
+        //use recursion to find the first element added
+        list(list->next);
+        printf("%d ", list->data);
+    }
+}
