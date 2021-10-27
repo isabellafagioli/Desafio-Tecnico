@@ -53,4 +53,20 @@ void clear(pointer list){
     }
 }
 
+int fisrt(pointer list){
+    if(list != NULL){
+        //use recursion to find the first element added
+        list(list->next);
+        if(list->next == NULL){
+            printf("%d ", list->data);
+        }
+    }
+}
+
+}
+
+int last(pointer list){
+    return list->data;
+}
+
 }
