@@ -12,14 +12,25 @@ pointer initialize_list(){
     return NULL;
 }
 
-pointer put(pinter list, int number){
+pointer put(pointer list, int number){
     pointer new;
     new = malloc(sizeof(Node));
+    // In case it didn't work
     if (new == NULL) {
-           printf("Memoria insuficiente.\n");
-           exit(1);  
-        }
+        printf("Memoria insuficiente.\n");
+        exit(1);  
+    }
+    //set data to the number asked and next to the rest of the list
     new->data = number;
     new->next = list;
     return new;
+}
+
+int get(pointer list, int pos){
+    pointer aux = list;
+    //move in the list until the position asked is found
+    for(int i = 0; i < pos; i++){
+        aux = aux->next;
+    }
+    return aux->data;
 }
